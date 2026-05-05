@@ -134,6 +134,16 @@ app.post('/encuesta', (req, res) => {
     <a href="/">Volver al inicio</a>`);
 });
 
+app.get('/saludo',(req,res)=>{
+  res.sendFile(__dirname+'/public/saludo.html');
+});
+
+app.post('/api/saludo', (req, res) => {
+  const { nombre } = req.body;
+  res.json({ mensaje: `Hola, ${nombre}!` });
+});
+
+
 // Middleware básico para manejo de errores
 app.use((err, req, res, next) => {
   console.error(err.stack);
