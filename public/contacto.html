@@ -7,11 +7,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Mis contactos</h1>
-    <p>Insertar contactos aqui</p>
+    <h1>Contacto</h1>
+    <h2>Ingresa tu nombre y por que amas los titulos</h2>
+    <form action="/contacto" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
     <div class = "enlaces">
+        <a href="/acerca">Acerca de</a>
         <a href="/">Volver a casa</a>
-        <a href="/contacto">Acerca de</a>
     </div>
     <script src="script.js" ></script>
 </body>

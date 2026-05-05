@@ -23,6 +23,33 @@ app.get('/contacto',(req,res) => {
 }
 );
 
+app.post('/contacto', (req, res) => {
+  const { nombre, mensaje } = req.body;
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Datos Enviados</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>Datos Recibidos</h1>
+        <p><strong>Nombre:</strong> ${nombre}</p>
+        <p><strong>Mensaje:</strong> ${mensaje}</p>
+        <div class = "enlaces">
+          <a href="/acerca">Acerca de</a>
+          <a href="/contacto">Volver al formulario</a>
+          <a href="/">Volver al inicio</a>
+        </div>
+        <script src="script.js"></script>
+    </body>
+    </html>
+  `);
+}
+);
+
 
 
 // Middleware básico para manejo de errores
