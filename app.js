@@ -39,7 +39,6 @@ app.get('/stats', (req, res) => {
     </body>
     </html>
   `);
-  console.log(visitasInicio);
 });
 
 // Middleware de archivos estáticos (DESPUÉS de las rutas dinámicas)
@@ -84,7 +83,16 @@ app.post('/contacto', (req, res) => {
 }
 );
 
+app.get('/encuesta',(req,res)=> {
+  res.sendFile(__dirname + '/public/encuesta.html');
+})
 
+app.post('/encuesta', (req, res) => {
+  const { respuesta } = req.body;
+  res.send(`<h1>Tu titulo favorito es: ${respuesta}</h1>
+    <style>body { background-color: #2BFF00;}</style>
+    <a href="/">Volver al inicio</a>`);
+});
 
 // Middleware básico para manejo de errores
 app.use((err, req, res, next) => {

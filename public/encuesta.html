@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta importante</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form action="/encuesta" method="POST">
+        <h2>¿Que titulo prefieres?</h2>
+        <select name="respuesta">
+            <option value="Titulos largos">Titulos largos</option>
+            <option value="Titulos breves">Titulos breves</option>
+            <option value="Titulos sensacionalistas">Titulos sensacionalistas</option>
+            <option value="Titulos misteriosos">Titulos misteriosos</option>
+        </select>
+        <button type="submit">Votar</button>
+    </form>
+    <div class = "enlaces">
+        <a href="/acerca">Acerca de</a>
+        <a href="/">Volver a casa</a>
+    </div>
+    <script src="script.js" ></script>
+</body>
+</html>
