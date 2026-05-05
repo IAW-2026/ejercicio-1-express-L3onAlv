@@ -1,15 +1,49 @@
 const express = require('express');
 const app = express();
 
+// Variable para contar visitas
+let visitasInicio = 0;
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Ruta raíz (ANTES del middleware estático)
+app.get('/', (req, res) => {
+  visitasInicio += 1;
+  res.sendFile(__dirname + '/public/index.html');
+});
+
 app.use(express.static('public'));
 
-// Ruta raíz
-app.get('/', (req, res) => {
-  res.send('Hola mundo!');
+//Ruta /stats - Mostrar contador de visitas
+app.get('/stats', (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Estadísticas</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>Estadísticas</h1>
+        <p>La ruta <strong>/</strong> ha sido visitada <strong>${visitasInicio}</strong> veces.</p>
+        <div class = "enlaces">
+          <a href="/acerca">Acerca de</a>
+          <a href="/contacto">Contactame</a>
+          <a href="/">Volver al inicio</a>
+        </div>
+        <script src="script.js"></script>
+    </body>
+    </html>
+  `);
+  console.log(visitasInicio);
 });
+
+// Middleware de archivos estáticos (DESPUÉS de las rutas dinámicas)
+
 
 //Ruta /acerca
 app.get('/acerca',(req,res) => {
