@@ -1,3 +1,18 @@
 body {
     background-color: #2BFF00;
 }
+
+.enlaces {
+  display: flex;
+  gap: 20px;
+}
+
+.enlaces a {
+  font-size: 1 em;
+  text-decoration: none;
+  color: #333;
+}
+
+.enlaces a:hover {
+  color: #0d09f8;
+}

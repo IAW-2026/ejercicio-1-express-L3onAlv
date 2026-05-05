@@ -5,10 +5,25 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+
 // Ruta raíz
 app.get('/', (req, res) => {
   res.send('Hola mundo!');
 });
+
+//Ruta /acerca
+app.get('/acerca',(req,res) => {
+  res.sendFile(__dirname + '/public/acerca.html');
+}
+);
+
+//Ruta /contacto
+app.get('/contacto',(req,res) => {
+  res.sendFile(__dirname + '/public/contacto.html');
+}
+);
+
+
 
 // Middleware básico para manejo de errores
 app.use((err, req, res, next) => {
