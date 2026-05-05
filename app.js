@@ -54,8 +54,14 @@ app.post('/', (req,res)=>{
   `);
 })
 
-// Middleware de archivos estáticos (DESPUÉS de las rutas dinámicas)
-
+app.get('/api/productos', (req, res) => {
+  const productos = [
+    { nombre: 'Titulo1', precio: 1500 },
+    { nombre: 'Titulo2', precio: 3000 },
+    { nombre: 'Titulo3', precio: 8000 }
+  ];
+  res.json(productos);
+});
 
 //Ruta /acerca
 app.get('/acerca',(req,res) => {
