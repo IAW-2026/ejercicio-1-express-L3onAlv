@@ -69,6 +69,20 @@ app.post('/api/contacto', (req, res) => {
   res.json({ mensaje });
 });
 
+app.get('/frase', (req,res)=> {
+  const frases = [
+    '“There is nothing noble in being superior to your fellow man; true nobility is being superior to your former self.” - Ernest Hemingway',
+    '“Qabsoon yoo hin jiraanne guddinni hin jiru.” - Firdeeriik Daaglaas',
+    '"「知識への投資は最高の利息を生む。」" - ベンジャミン・フランクリン',
+    '"Deuet on, gwelet em eus, trec het em eus. - Jul Kaezar"',
+  ];
+  const indice = Math.floor(Math.random() * frases.length);
+  res.json({ frase: frases[indice] });
+});
+
+
+
+
 
 //Ruta /acerca
 app.get('/acerca',(req,res) => {

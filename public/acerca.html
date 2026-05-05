@@ -13,6 +13,19 @@
         <a href="/">Volver a casa</a>
         <a href="/contacto">Contactame</a>
     </div>
+    <h2>Estas perdido? Necesitas una frase motivacional?</h2>
+    <button id="botonFrase">Click aqui para subirte el animo</button>
+    <p id="frase"></p>
+    <script>
+        document.getElementById('botonFrase').addEventListener('click', () => {
+    fetch('/frase')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('frase').innerText = data.frase;
+      console.log(data.frase);
+    });
+    });
+    </script>
     <script src="script.js" ></script>
 </body>
 </html>
