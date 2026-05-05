@@ -16,3 +16,8 @@ body {
 .enlaces a:hover {
   color: #0d09f8;
 }
+
+#imagen-inicial {
+  width: 40%;
+  height: 40%;
+}
