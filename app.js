@@ -4,6 +4,8 @@ const app = express();
 // Variable para contar visitas
 let visitasInicio = 0;
 
+const mensajes = [];
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -40,6 +42,17 @@ app.get('/stats', (req, res) => {
     </html>
   `);
 });
+
+app.post('/', (req,res)=>{
+  const { mensaje } = req.body;
+  mensajes.push(mensaje);
+  res.send(`
+    <h1>Amorosos comentarios:</h1>
+    <ul>${mensajes.join('<p>')}</ul>
+    <style>body { background-color: #2BFF00;}</style>
+    <a href="/">Volver al inicio</a>
+  `);
+})
 
 // Middleware de archivos estáticos (DESPUÉS de las rutas dinámicas)
 
