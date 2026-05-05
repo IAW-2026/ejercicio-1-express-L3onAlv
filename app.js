@@ -63,6 +63,13 @@ app.get('/api/productos', (req, res) => {
   res.json(productos);
 });
 
+app.post('/api/contacto', (req, res) => {
+  const { respuesta } = req.body;
+  const mensaje = respuesta === 'si' ? '¡Perfecto!' : '...';
+  res.json({ mensaje });
+});
+
+
 //Ruta /acerca
 app.get('/acerca',(req,res) => {
   res.sendFile(__dirname + '/public/acerca.html');
